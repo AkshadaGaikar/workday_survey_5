@@ -17,11 +17,12 @@ explore:survey5
   }
 }
 access_grant: can_view_all{
-  allowed_values: ["HR","CEO","Manager","Consultant"]
-  user_attribute: user_designation
+    user_attribute: user_designation
+    allowed_values: ["HR","CEO","Manager","Consultant"]
+
 }
 
 access_grant: can_view_managerSelf {
-  allowed_values: ["Manager"]
-  user_attribute: user_designation
+    user_attribute: user_designation
+    allowed_values: ["Manager"]
 }
