@@ -6,7 +6,7 @@ datagroup: workday_survey_2_default_datagroup {
   max_cache_age: "1 hour"}
 
 persist_with: workday_survey_2_default_datagroup
-#include: "/Dashboard/*.dashboard.lookml"
+include: "/Dashboard/*.dashboard.lookml"
 
 explore:survey5
 {
@@ -16,12 +16,12 @@ explore:survey5
     relationship: many_to_one
   }
 }
-# access_grant: can_view_all{
-#   allowed_values: ["HR","CEO","Manager","Consultant"]
-#   user_attribute: user_designation
-# }
+access_grant: can_view_all{
+  allowed_values: ["HR","CEO","Manager","Consultant"]
+  user_attribute: user_designation
+}
 
-# access_grant: can_view_managerSelf {
-#   allowed_values: ["Manager"]
-#   user_attribute: user_designation
-# }
+access_grant: can_view_managerSelf {
+  allowed_values: ["Manager"]
+  user_attribute: user_designation
+}
