@@ -10,6 +10,14 @@ include: "/Dashboard/*.dashboard.lookml"
 
 explore:survey5
 {
+
+  sql_always_where: {% if ${manager_emp_hier5.manager_id}=="{{ _user_attributes['email'] }}" and ${manager_emp_hier5.designation} =='CEO'%}
+        1=1
+    {% else %}
+        ${manager_emp_hier5.manager_id}=="{{ _user_attributes['email'] }}"
+    {% endif %}   ;;
+
+
   join:manager_emp_hier5  {
      type: left_outer
     sql_on: ${survey5.employee_id}=${manager_emp_hier5.employee_id};;
