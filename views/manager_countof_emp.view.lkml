@@ -2,7 +2,7 @@ view: manager_countof_emp {
   #sql_table_name: `WORKDAY_SURVEY.manager_emp_hier3` ;;
   # Or, you could make this view a derived table, like this:
   derived_table: {
-    sql: SELECT ManagerID ,count(EmployeeID) as NumberOfEmpUnder FROM `sab-dev-proj-dev-dw-4905.WORKDAY_SURVEY.manager_emp_hier4` group by ManagerID
+    sql: SELECT ManagerID ,count(EmployeeID) as NumberOfEmpUnder FROM `sab-dev-proj-dev-dw-4905.WORKDAY_SURVEY.manager_emp_hier5` group by ManagerID
       ;;
   }
 
