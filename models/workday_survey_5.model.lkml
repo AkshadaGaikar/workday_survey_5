@@ -27,7 +27,7 @@ explore:survey5
   #   {% endif %}   ;;
 
 
-  sql_always_where: {% if _user_attributes['user_designation'] =='CEO' or _user_attributes['user_designation'] =='HR' %}
+  sql_always_where: {% if _user_attributes['user_designation'] =='CEO,HR'%}
         1=1
     {% elsif _user_attributes['user_designation'] =='Manager'  %}
         ${manager_emp_hier5.employee_id}='{{ _user_attributes['email'] }}'
@@ -83,7 +83,7 @@ explore:survey5
 
 # }
 
-# access_grant: can_view_managerSelf {
-#     user_attribute:user_designation
-#     allowed_values: ["Manager"]
-# }
+access_grant: can_view {
+    user_attribute:user_designation
+    allowed_values: ["Manager","CEO,HR"]
+}
