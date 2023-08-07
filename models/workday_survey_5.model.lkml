@@ -17,7 +17,7 @@ explore:survey5
   #       ${manager_emp_hier5.employee_id}='{{ _user_attributes['email'] }}"
   #   {% endif %}   ;;
 
-sql_always_where: case when  ${manager_emp_hier5.employee_id}='{{ _user_attributes['email'] }}' and ${manager_emp_hier5.designation} ='CEO' then true
+sql_always_where: case when  ${manager_emp_hier5.employee_id}='{{ _user_attributes['email'] }}' and ${manager_emp_hier5.designation} =='CEO' then true
 else ${manager_emp_hier5.employee_id}='{{ _user_attributes['email'] }}' end;;
 
   join:manager_emp_hier5  {
