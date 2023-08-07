@@ -11,14 +11,14 @@ include: "/Dashboard/*.dashboard.lookml"
 explore:survey5
 {
 
-  # sql_always_where: {% if _user_attributes['email'] and  ${manager_emp_hier5.designation} =='CEO' %}
-  #       1=1
-  #   {% else %}
-  #       ${manager_emp_hier5.employee_id}='{{ _user_attributes['email'] }}"
-  #   {% endif %}   ;;
+  sql_always_where: {% if ${manager_emp_hier5.employee_id}=='{{ _user_attributes[email] }}' and  ${manager_emp_hier5.designation} =='CEO' %}
+        1=1
+    {% else %}
+        ${manager_emp_hier5.employee_id}='{{ _user_attributes['email'] }}'
+    {% endif %}   ;;
 
-sql_always_where: case when  ${manager_emp_hier5.employee_id}='{{ _user_attributes['email'] }}' and ${manager_emp_hier5.designation} ='CEO' then 1=1
-else ${manager_emp_hier5.employee_id}='{{ _user_attributes['email'] }}' end;;
+# sql_always_where: case when  ${manager_emp_hier5.employee_id}='{{ _user_attributes['email'] }}' and ${manager_emp_hier5.designation} ='CEO' then 1=1
+# else ${manager_emp_hier5.employee_id}='{{ _user_attributes['email'] }}' end;;
 
   join:manager_emp_hier5  {
      type: left_outer
