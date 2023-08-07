@@ -11,8 +11,7 @@ include: "/Dashboard/*.dashboard.lookml"
 explore:survey5
 {
 
-  sql_always_where: {% if _user_attributes['email'] %}
-       ${manager_emp_hier5.employee_id}='{{ _user_attributes['email'] }}' and ${manager_emp_hier5.designation} ='CEO'
+  sql_always_where: {% if _user_attributes['email'] and  ${manager_emp_hier5.designation} =='CEO' %}
         1=1
     {% else %}
         ${manager_emp_hier5.employee_id}='{{ _user_attributes['email'] }}"
@@ -25,6 +24,7 @@ explore:survey5
     relationship: many_to_one
   }
 }
+# ${manager_emp_hier5.employee_id}='{{ _user_attributes['email'] }}' and ${manager_emp_hier5.designation} ='CEO'
 # access_grant: can_view_all{
 #     user_attribute: user_designation
 #     allowed_values: ["HR","CEO","Manager","Consultant"]
