@@ -18,10 +18,10 @@ explore:survey5
   #   {% endif %}   ;;
 
   sql_always_where: {% if _user_attributes['email'] and  _user_attributes['user_designation'] =='CEO' %}
-  #       1=1
-  #   {% else %}
-  #       ${manager_emp_hier5.employee_id}='{{ _user_attributes['email'] }}'
-  #   {% endif %}   ;;
+        1=1
+    {% else %}
+        ${manager_emp_hier5.employee_id}='{{ _user_attributes['email'] }}'
+    {% endif %}   ;;
 
 
 
