@@ -1,6 +1,6 @@
 view: manager_emp_hier5 {
   sql_table_name: `WORKDAY_SURVEY.manager_emp_hier5` ;;
-  required_access_grants: [can_view_all,can_view_managerSelf]
+  # required_access_grants: [can_view_all,can_view_managerSelf]
   dimension: designation {
     type: string
     sql: ${TABLE}.Designation ;;

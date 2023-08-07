@@ -16,13 +16,13 @@ explore:survey5
     relationship: many_to_one
   }
 }
-access_grant: can_view_all{
-    user_attribute: user_designation
-    allowed_values: ["HR","CEO","Manager","Consultant"]
+# access_grant: can_view_all{
+#     user_attribute: user_designation
+#     allowed_values: ["HR","CEO","Manager","Consultant"]
 
-}
+# }
 
-access_grant: can_view_managerSelf {
-    user_attribute: user_designation
-    allowed_values: ["Manager"]
-}
+# access_grant: can_view_managerSelf {
+#     user_attribute:user_designation
+#     allowed_values: ["Manager"]
+# }
