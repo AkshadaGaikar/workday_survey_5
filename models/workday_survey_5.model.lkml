@@ -10,11 +10,22 @@ persist_with: workday_survey_2_default_datagroup
 
 ################################################################################
 
+explore: manager_emp_hier5  {
+  #sql_always_where: ${manager_emp_hier_new_2.NumberOfEmpUnder} >2;;
+  join: manager_countof_emp {
+    type: left_outer
+    sql_on: ${manager_emp_hier5.manager_id}=${manager_countof_emp.ManagerID};;
+    #sql_where: ${manager_countof_emp.NumberOfEmpUnder}>2 ;;
+    relationship: many_to_one
+  }
+}
+
 explore:survey5
 {
+  extends: [manager_emp_hier5]
   sql_always_where: {% if _user_attributes['user_designation'] =='CEO,HR'%}
         1=1
-    {% elsif _user_attributes['user_designation'] =='Manager'  %}
+    {% elsif _user_attributes['user_designation'] =='Manager'  and ${manager_countof_emp.NumberOfEmpUnder}>2  %}
         ${manager_emp_hier5.employee_id}='{{ _user_attributes['email'] }}'
     {% else%}
         false
@@ -25,6 +36,12 @@ explore:survey5
     sql_on: ${survey5.employee_id}=${manager_emp_hier5.employee_id};;
     relationship: many_to_one
   }
+
+
+# access_filter: {
+#   field: manager_countof_emp.NumberOfEmpUnder
+#   user_attribute: <2
+# }
 
 }
 
