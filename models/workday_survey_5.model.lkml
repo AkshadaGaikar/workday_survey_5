@@ -25,7 +25,8 @@ explore:survey5
   extends: [manager_emp_hier5]
   sql_always_where: {% if _user_attributes['user_designation'] =='CEO,HR'%}
         1=1
-    {% elsif _user_attributes['user_designation'] =='Manager'  and ${manager_countof_emp.NumberOfEmpUnder}>2  %}
+
+    {% elsif _user_attributes['user_designation'] =='Manager'%}
         ${manager_emp_hier5.employee_id}='{{ _user_attributes['email'] }}'
     {% else%}
         false
@@ -37,7 +38,7 @@ explore:survey5
     relationship: many_to_one
   }
 
-##########################################  access_filter
+##########################################  access_filter  and ${manager_countof_emp.NumberOfEmpUnder}>2
 # access_filter: {
 #   field: manager_countof_emp.NumberOfEmpUnder
 #   user_attribute: <2
