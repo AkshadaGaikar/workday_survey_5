@@ -15,7 +15,7 @@ explore: manager_emp_hier5  {
   join: manager_countof_emp {
     type: left_outer
     sql_on: ${manager_emp_hier5.manager_id}=${manager_countof_emp.ManagerID};;
-    #sql_where: ${manager_countof_emp.NumberOfEmpUnder}>2 ;;
+    #sql_where: ${manager_countof_emp.NumberOfEmpUnder}>2 ;; ---- this is affecting data level ...not as expected output will restrict the data for CEO/HR as well
     relationship: many_to_one
   }
 }
@@ -37,7 +37,7 @@ explore:survey5
     relationship: many_to_one
   }
 
-
+##########################################  access_filter
 # access_filter: {
 #   field: manager_countof_emp.NumberOfEmpUnder
 #   user_attribute: <2

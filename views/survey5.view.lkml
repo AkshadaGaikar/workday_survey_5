@@ -1,6 +1,6 @@
 view: survey5 {
   sql_table_name: `WORKDAY_SURVEY.Survey5` ;;
-
+  required_access_grants: [can_view]
   dimension: employee_id {
     type: string
     sql: ${TABLE}.EmployeeID ;;
